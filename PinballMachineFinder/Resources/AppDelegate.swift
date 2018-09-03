@@ -15,7 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+//       LocationController.sharedInstance.fetchRegions { (success) in
+//            if success {
+//                print("Success for region!😀😀😀😀")
+//            }
+//        }
+    
+//        LocationController.sharedInstance.fetchLocationsWith(region: "utah") { (success) in
+//            if success != nil {
+//                print("Success for location!😍")
+//            }
+//        }
         return true
     }
 
