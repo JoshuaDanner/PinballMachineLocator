@@ -10,12 +10,15 @@ import UIKit
 
 class LocationsTableViewCell: UITableViewCell {
     
-    var locations: Location? {
+    var location: Location? {
         didSet {
             updateViews()
+            
         }
     }
-    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
     // MARK: IBOutlets
     @IBOutlet weak var locationName: UILabel!
     @IBOutlet weak var locationAddress: UILabel!
@@ -25,18 +28,18 @@ class LocationsTableViewCell: UITableViewCell {
     @IBOutlet weak var totalMachineAtLocation: UILabel!
     @IBOutlet weak var pinView: UIView!
 
-//    func pinViewProperties() {
-//
-//    }
+    func pinViewProperties() {
+
+    }
     
     func updateViews() {
 //        DispatchQueue.main.async {
 //            self.pinViewProperties()
 //        }
-        guard let locations = locations else { return }
-        self.locationName.text = locations.locationName
-        self.locationAddress.text = locations.street
-        self.locationState.text = locations.state
+        guard let location = location else { return }
+        self.locationName.text = location.locationName
+        self.locationAddress.text = location.street
+        self.locationState.text = location.state
     }
 }
 

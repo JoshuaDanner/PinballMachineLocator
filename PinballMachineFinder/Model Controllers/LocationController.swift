@@ -66,11 +66,11 @@ class LocationController {
         print("📡📡📡 \(completeLocationURL) 📡📡📡")
         
         URLSession.shared.dataTask(with: completeLocationURL) { (data, _, error) in
-//            if let error = error {
-//                print("❌Error downloading locations with DataTask: \(error)")
-//                completion(nil)
-//                return
-//            }
+            if let error = error {
+                print("❌Error downloading locations with DataTask: \(error)")
+                completion(nil)
+                return
+            }
             
             guard let data = data else { completion(nil) ; return }
 
