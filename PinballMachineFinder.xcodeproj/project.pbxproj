@@ -1,0 +1,673 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4213B12B2108F5AF00315B5D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4213B12A2108F5AF00315B5D /* MapViewController.swift */; };
+		42A4EDBB21121DB8001F071E /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A4EDBA21121DB8001F071E /* LocationController.swift */; };
+		42A4EDBD21123108001F071E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A4EDBC21123108001F071E /* Location.swift */; };
+		42A4EDBF21123116001F071E /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A4EDBE21123116001F071E /* Machine.swift */; };
+		42D52805210FAA5E00F4BC93 /* LocationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D52804210FAA5E00F4BC93 /* LocationsTableViewCell.swift */; };
+		42D52807210FAE1200F4BC93 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D52806210FAE1200F4BC93 /* Region.swift */; };
+		42D5BB2C211BD4D5002A19AA /* RegionPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D5BB2B211BD4D5002A19AA /* RegionPopupView.swift */; };
+		42D5BB4E211D2E9B002A19AA /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D5BB4D211D2E9B002A19AA /* LocationAnnotation.swift */; };
+		42F14B062108F1DF002C3567 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F14B052108F1DF002C3567 /* AppDelegate.swift */; };
+		42F14B082108F1DF002C3567 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F14B072108F1DF002C3567 /* LocationsViewController.swift */; };
+		42F14B0A2108F1DF002C3567 /* LocationsMachinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F14B092108F1DF002C3567 /* LocationsMachinesViewController.swift */; };
+		42F14B0D2108F1DF002C3567 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F14B0B2108F1DF002C3567 /* Main.storyboard */; };
+		42F14B0F2108F1E1002C3567 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42F14B0E2108F1E1002C3567 /* Assets.xcassets */; };
+		42F14B122108F1E1002C3567 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F14B102108F1E1002C3567 /* LaunchScreen.storyboard */; };
+		42F14B1D2108F1E1002C3567 /* PinballMachineFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F14B1C2108F1E1002C3567 /* PinballMachineFinderTests.swift */; };
+		42F14B282108F1E1002C3567 /* PinballMachineFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F14B272108F1E1002C3567 /* PinballMachineFinderUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		42F14B192108F1E1002C3567 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 42F14AFA2108F1DF002C3567 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 42F14B012108F1DF002C3567;
+			remoteInfo = PinballMachineFinder;
+		};
+		42F14B242108F1E1002C3567 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 42F14AFA2108F1DF002C3567 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 42F14B012108F1DF002C3567;
+			remoteInfo = PinballMachineFinder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4213B12A2108F5AF00315B5D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		42A4EDBA21121DB8001F071E /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
+		42A4EDBC21123108001F071E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		42A4EDBE21123116001F071E /* Machine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
+		42D52804210FAA5E00F4BC93 /* LocationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewCell.swift; sourceTree = "<group>"; };
+		42D52806210FAE1200F4BC93 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		42D5BB2B211BD4D5002A19AA /* RegionPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionPopupView.swift; sourceTree = "<group>"; };
+		42D5BB4D211D2E9B002A19AA /* LocationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
+		42F14B022108F1DF002C3567 /* PinballMachineFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinballMachineFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		42F14B052108F1DF002C3567 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		42F14B072108F1DF002C3567 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		42F14B092108F1DF002C3567 /* LocationsMachinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsMachinesViewController.swift; sourceTree = "<group>"; };
+		42F14B0C2108F1DF002C3567 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		42F14B0E2108F1E1002C3567 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		42F14B112108F1E1002C3567 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		42F14B132108F1E1002C3567 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42F14B182108F1E1002C3567 /* PinballMachineFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinballMachineFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		42F14B1C2108F1E1002C3567 /* PinballMachineFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinballMachineFinderTests.swift; sourceTree = "<group>"; };
+		42F14B1E2108F1E1002C3567 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42F14B232108F1E1002C3567 /* PinballMachineFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinballMachineFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		42F14B272108F1E1002C3567 /* PinballMachineFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinballMachineFinderUITests.swift; sourceTree = "<group>"; };
+		42F14B292108F1E1002C3567 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		42F14AFF2108F1DF002C3567 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42F14B152108F1E1002C3567 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42F14B202108F1E1002C3567 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		42F14AF92108F1DF002C3567 = {
+			isa = PBXGroup;
+			children = (
+				42F14B042108F1DF002C3567 /* PinballMachineFinder */,
+				42F14B1B2108F1E1002C3567 /* PinballMachineFinderTests */,
+				42F14B262108F1E1002C3567 /* PinballMachineFinderUITests */,
+				42F14B032108F1DF002C3567 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		42F14B032108F1DF002C3567 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				42F14B022108F1DF002C3567 /* PinballMachineFinder.app */,
+				42F14B182108F1E1002C3567 /* PinballMachineFinderTests.xctest */,
+				42F14B232108F1E1002C3567 /* PinballMachineFinderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		42F14B042108F1DF002C3567 /* PinballMachineFinder */ = {
+			isa = PBXGroup;
+			children = (
+				42F14B392108F2A4002C3567 /* Model */,
+				42F14B372108F27E002C3567 /* Model Controllers */,
+				42F14B382108F296002C3567 /* View Controllers */,
+				42F14B3A2108F2AC002C3567 /* Views */,
+				42F14B362108F275002C3567 /* Storyboards */,
+				42F14B352108F26A002C3567 /* Resources */,
+			);
+			path = PinballMachineFinder;
+			sourceTree = "<group>";
+		};
+		42F14B1B2108F1E1002C3567 /* PinballMachineFinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				42F14B1C2108F1E1002C3567 /* PinballMachineFinderTests.swift */,
+				42F14B1E2108F1E1002C3567 /* Info.plist */,
+			);
+			path = PinballMachineFinderTests;
+			sourceTree = "<group>";
+		};
+		42F14B262108F1E1002C3567 /* PinballMachineFinderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				42F14B272108F1E1002C3567 /* PinballMachineFinderUITests.swift */,
+				42F14B292108F1E1002C3567 /* Info.plist */,
+			);
+			path = PinballMachineFinderUITests;
+			sourceTree = "<group>";
+		};
+		42F14B352108F26A002C3567 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				42F14B052108F1DF002C3567 /* AppDelegate.swift */,
+				42F14B0E2108F1E1002C3567 /* Assets.xcassets */,
+				42F14B102108F1E1002C3567 /* LaunchScreen.storyboard */,
+				42F14B132108F1E1002C3567 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		42F14B362108F275002C3567 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				42F14B0B2108F1DF002C3567 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		42F14B372108F27E002C3567 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				42A4EDBA21121DB8001F071E /* LocationController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		42F14B382108F296002C3567 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				42F14B072108F1DF002C3567 /* LocationsViewController.swift */,
+				42F14B092108F1DF002C3567 /* LocationsMachinesViewController.swift */,
+				4213B12A2108F5AF00315B5D /* MapViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		42F14B392108F2A4002C3567 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42D52806210FAE1200F4BC93 /* Region.swift */,
+				42A4EDBC21123108001F071E /* Location.swift */,
+				42A4EDBE21123116001F071E /* Machine.swift */,
+				42D5BB4D211D2E9B002A19AA /* LocationAnnotation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42F14B3A2108F2AC002C3567 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				42D52804210FAA5E00F4BC93 /* LocationsTableViewCell.swift */,
+				42D5BB2B211BD4D5002A19AA /* RegionPopupView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		42F14B012108F1DF002C3567 /* PinballMachineFinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42F14B2C2108F1E1002C3567 /* Build configuration list for PBXNativeTarget "PinballMachineFinder" */;
+			buildPhases = (
+				42F14AFE2108F1DF002C3567 /* Sources */,
+				42F14AFF2108F1DF002C3567 /* Frameworks */,
+				42F14B002108F1DF002C3567 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PinballMachineFinder;
+			productName = PinballMachineFinder;
+			productReference = 42F14B022108F1DF002C3567 /* PinballMachineFinder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		42F14B172108F1E1002C3567 /* PinballMachineFinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42F14B2F2108F1E1002C3567 /* Build configuration list for PBXNativeTarget "PinballMachineFinderTests" */;
+			buildPhases = (
+				42F14B142108F1E1002C3567 /* Sources */,
+				42F14B152108F1E1002C3567 /* Frameworks */,
+				42F14B162108F1E1002C3567 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				42F14B1A2108F1E1002C3567 /* PBXTargetDependency */,
+			);
+			name = PinballMachineFinderTests;
+			productName = PinballMachineFinderTests;
+			productReference = 42F14B182108F1E1002C3567 /* PinballMachineFinderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		42F14B222108F1E1002C3567 /* PinballMachineFinderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42F14B322108F1E1002C3567 /* Build configuration list for PBXNativeTarget "PinballMachineFinderUITests" */;
+			buildPhases = (
+				42F14B1F2108F1E1002C3567 /* Sources */,
+				42F14B202108F1E1002C3567 /* Frameworks */,
+				42F14B212108F1E1002C3567 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				42F14B252108F1E1002C3567 /* PBXTargetDependency */,
+			);
+			name = PinballMachineFinderUITests;
+			productName = PinballMachineFinderUITests;
+			productReference = 42F14B232108F1E1002C3567 /* PinballMachineFinderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		42F14AFA2108F1DF002C3567 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = JoshuaDanner;
+				TargetAttributes = {
+					42F14B012108F1DF002C3567 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					42F14B172108F1E1002C3567 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 42F14B012108F1DF002C3567;
+					};
+					42F14B222108F1E1002C3567 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 42F14B012108F1DF002C3567;
+					};
+				};
+			};
+			buildConfigurationList = 42F14AFD2108F1DF002C3567 /* Build configuration list for PBXProject "PinballMachineFinder" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 42F14AF92108F1DF002C3567;
+			productRefGroup = 42F14B032108F1DF002C3567 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				42F14B012108F1DF002C3567 /* PinballMachineFinder */,
+				42F14B172108F1E1002C3567 /* PinballMachineFinderTests */,
+				42F14B222108F1E1002C3567 /* PinballMachineFinderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		42F14B002108F1DF002C3567 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42F14B122108F1E1002C3567 /* LaunchScreen.storyboard in Resources */,
+				42F14B0F2108F1E1002C3567 /* Assets.xcassets in Resources */,
+				42F14B0D2108F1DF002C3567 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42F14B162108F1E1002C3567 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42F14B212108F1E1002C3567 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		42F14AFE2108F1DF002C3567 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42F14B0A2108F1DF002C3567 /* LocationsMachinesViewController.swift in Sources */,
+				42D52805210FAA5E00F4BC93 /* LocationsTableViewCell.swift in Sources */,
+				42D5BB2C211BD4D5002A19AA /* RegionPopupView.swift in Sources */,
+				42A4EDBD21123108001F071E /* Location.swift in Sources */,
+				42F14B062108F1DF002C3567 /* AppDelegate.swift in Sources */,
+				42F14B082108F1DF002C3567 /* LocationsViewController.swift in Sources */,
+				42D52807210FAE1200F4BC93 /* Region.swift in Sources */,
+				4213B12B2108F5AF00315B5D /* MapViewController.swift in Sources */,
+				42A4EDBB21121DB8001F071E /* LocationController.swift in Sources */,
+				42D5BB4E211D2E9B002A19AA /* LocationAnnotation.swift in Sources */,
+				42A4EDBF21123116001F071E /* Machine.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42F14B142108F1E1002C3567 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42F14B1D2108F1E1002C3567 /* PinballMachineFinderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42F14B1F2108F1E1002C3567 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42F14B282108F1E1002C3567 /* PinballMachineFinderUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		42F14B1A2108F1E1002C3567 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 42F14B012108F1DF002C3567 /* PinballMachineFinder */;
+			targetProxy = 42F14B192108F1E1002C3567 /* PBXContainerItemProxy */;
+		};
+		42F14B252108F1E1002C3567 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 42F14B012108F1DF002C3567 /* PinballMachineFinder */;
+			targetProxy = 42F14B242108F1E1002C3567 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		42F14B0B2108F1DF002C3567 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42F14B0C2108F1DF002C3567 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		42F14B102108F1E1002C3567 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42F14B112108F1E1002C3567 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		42F14B2A2108F1E1002C3567 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		42F14B2B2108F1E1002C3567 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		42F14B2D2108F1E1002C3567 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M3XYYRNDF8;
+				INFOPLIST_FILE = "$(SRCROOT)/PinballMachineFinder/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.JoshuaDanner.PinballMachineFinder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		42F14B2E2108F1E1002C3567 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M3XYYRNDF8;
+				INFOPLIST_FILE = "$(SRCROOT)/PinballMachineFinder/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.JoshuaDanner.PinballMachineFinder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		42F14B302108F1E1002C3567 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M3XYYRNDF8;
+				INFOPLIST_FILE = PinballMachineFinderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.JoshuaDanner.PinballMachineFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinballMachineFinder.app/PinballMachineFinder";
+			};
+			name = Debug;
+		};
+		42F14B312108F1E1002C3567 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M3XYYRNDF8;
+				INFOPLIST_FILE = PinballMachineFinderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.JoshuaDanner.PinballMachineFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinballMachineFinder.app/PinballMachineFinder";
+			};
+			name = Release;
+		};
+		42F14B332108F1E1002C3567 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M3XYYRNDF8;
+				INFOPLIST_FILE = PinballMachineFinderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.JoshuaDanner.PinballMachineFinderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PinballMachineFinder;
+			};
+			name = Debug;
+		};
+		42F14B342108F1E1002C3567 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M3XYYRNDF8;
+				INFOPLIST_FILE = PinballMachineFinderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.JoshuaDanner.PinballMachineFinderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PinballMachineFinder;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		42F14AFD2108F1DF002C3567 /* Build configuration list for PBXProject "PinballMachineFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42F14B2A2108F1E1002C3567 /* Debug */,
+				42F14B2B2108F1E1002C3567 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42F14B2C2108F1E1002C3567 /* Build configuration list for PBXNativeTarget "PinballMachineFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42F14B2D2108F1E1002C3567 /* Debug */,
+				42F14B2E2108F1E1002C3567 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42F14B2F2108F1E1002C3567 /* Build configuration list for PBXNativeTarget "PinballMachineFinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42F14B302108F1E1002C3567 /* Debug */,
+				42F14B312108F1E1002C3567 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42F14B322108F1E1002C3567 /* Build configuration list for PBXNativeTarget "PinballMachineFinderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42F14B332108F1E1002C3567 /* Debug */,
+				42F14B342108F1E1002C3567 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 42F14AFA2108F1DF002C3567 /* Project object */;
+}
