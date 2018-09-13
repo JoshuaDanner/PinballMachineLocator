@@ -11,6 +11,7 @@
 		42A4EDBB21121DB8001F071E /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A4EDBA21121DB8001F071E /* LocationController.swift */; };
 		42A4EDBD21123108001F071E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A4EDBC21123108001F071E /* Location.swift */; };
 		42A4EDBF21123116001F071E /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A4EDBE21123116001F071E /* Machine.swift */; };
+		42C445532148B2B600262070 /* LocationsMachinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C445522148B2B600262070 /* LocationsMachinesTableViewCell.swift */; };
 		42D52805210FAA5E00F4BC93 /* LocationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D52804210FAA5E00F4BC93 /* LocationsTableViewCell.swift */; };
 		42D52807210FAE1200F4BC93 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D52806210FAE1200F4BC93 /* Region.swift */; };
 		42D5BB2C211BD4D5002A19AA /* RegionPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D5BB2B211BD4D5002A19AA /* RegionPopupView.swift */; };
@@ -47,6 +48,7 @@
 		42A4EDBA21121DB8001F071E /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		42A4EDBC21123108001F071E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		42A4EDBE21123116001F071E /* Machine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
+		42C445522148B2B600262070 /* LocationsMachinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsMachinesTableViewCell.swift; sourceTree = "<group>"; };
 		42D52804210FAA5E00F4BC93 /* LocationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewCell.swift; sourceTree = "<group>"; };
 		42D52806210FAE1200F4BC93 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		42D5BB2B211BD4D5002A19AA /* RegionPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionPopupView.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				42D52804210FAA5E00F4BC93 /* LocationsTableViewCell.swift */,
+				42C445522148B2B600262070 /* LocationsMachinesTableViewCell.swift */,
 				42D5BB2B211BD4D5002A19AA /* RegionPopupView.swift */,
 			);
 			path = Views;
@@ -333,6 +336,7 @@
 			files = (
 				42F14B0A2108F1DF002C3567 /* LocationsMachinesViewController.swift in Sources */,
 				42D52805210FAA5E00F4BC93 /* LocationsTableViewCell.swift in Sources */,
+				42C445532148B2B600262070 /* LocationsMachinesTableViewCell.swift in Sources */,
 				42D5BB2C211BD4D5002A19AA /* RegionPopupView.swift in Sources */,
 				42A4EDBD21123108001F071E /* Location.swift in Sources */,
 				42F14B062108F1DF002C3567 /* AppDelegate.swift in Sources */,

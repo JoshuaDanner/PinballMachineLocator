@@ -15,9 +15,11 @@ class LocationController {
     
     var regions: [Region] = []
     var locations: [Location] = []
+    var machines: [Machine] = []
     
     var regionURL = URL(string: "https://pinballmap.com/api/v1/regions.json")
     var baseLocationURL = URL(string: "https://pinballmap.com/api/v1/region/")
+    var baseMachinesAtLocationURL = URL(string: "https://pinballmap.com/api/v1/locations/")
     
     // Fetch list of available regions to access name for Location Fetch
     func fetchRegions(completion: @escaping(Bool) -> Void) {
@@ -55,15 +57,13 @@ class LocationController {
         
     }
     
-    func fetchLocationsWith(region: String, completion: @escaping(([Location]?)) -> Void) {
-
+    func fetchLocationsWith(region: String, completion: @escaping([Location]?) -> Void) {
+        
         guard let url = baseLocationURL else { completion(nil) ; return }
-
-//        let locationsEnd = "locations.json"
         
         let completeLocationURL = url.appendingPathComponent(region).appendingPathComponent("locations").appendingPathExtension("json")
         
-        print("📡📡📡 \(completeLocationURL) 📡📡📡")
+       // print("📡📡📡 \(completeLocationURL) 📡📡📡")
         
         URLSession.shared.dataTask(with: completeLocationURL) { (data, _, error) in
             if let error = error {
@@ -73,18 +73,18 @@ class LocationController {
             }
             
             guard let data = data else { completion(nil) ; return }
-
+            
             let jsonDecoder = JSONDecoder()
             do {
                 let topLevel = try jsonDecoder.decode(TopLevelLocation.self , from: data)
                 completion(topLevel.locations)
             } catch let error {
-
+                
                 print("Error decoding location from dataTask: \(error)")
                 completion(nil)
                 return
             }
-            print(data)
+           // print(data)
             }.resume()
         
         
@@ -93,7 +93,39 @@ class LocationController {
     
     //-----------------------------------
     
-   // func fetchMachinesWith(location: String, completion: @escaping(())
+    func fetchMachinesWith(location: Int, completion: @escaping([Machine]?) -> Void) {
+        
+        guard let url = baseMachinesAtLocationURL else { completion(nil) ; return }
+        
+        let completeMachinesAtLocation = url.appendingPathComponent("\(location)").appendingPathComponent("machine_details").appendingPathExtension("json")
+        
+        print("📡📡📡 \(completeMachinesAtLocation) 📡📡📡📡📡📡📡📡📡📡📡📡")
+        
+        URLSession.shared.dataTask(with: completeMachinesAtLocation) { (data, _, error) in
+            
+            if let error = error {
+                print("Error downloading machineIDs with DataTask: \(error)")
+                completion(nil)
+                return
+            }
+            
+            guard let data = data else { completion(nil) ; return }
+            
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                let topLevelMachines = try jsonDecoder.decode(TopLevelMachineLocation.self , from: data)
+                let machines = topLevelMachines.machines.compactMap({$0})
+                self.machines = machines
+                completion(machines)
+            } catch let error {
+                print("Error decoding location from dataTask: \(error)")
+                completion(nil)
+                return
+            }
+            print(data)
+        }.resume()
+    }
     
 } // End LocationController
 

@@ -9,51 +9,93 @@
 import UIKit
 
 class LocationsMachinesViewController: UIViewController {
-
+    
     // MARK: - Properties
     
-   var navigationTitle = UILabel()
+    private let locationController = LocationController()
+    var navigationTitle = UILabel()
+    var location: Location?
+    var machine: Machine?
+    
+    @IBOutlet weak var machinesAtLocationTableView: UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationTitleProperties()
+        tableViewDelegates()
+        fetchMachinesAtLocation()
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     func navigationTitleProperties() {
         
-       self.navigationItem.titleView = navigationTitle
-       navigationTitle.text = "Scoops"
+        self.navigationItem.titleView = navigationTitle
+        navigationTitle.text = location?.locationName
+    }
+    
+    func tableViewDelegates() {
+        machinesAtLocationTableView.delegate = self
+        machinesAtLocationTableView.dataSource = self 
+    }
+    
+    func fetchMachinesAtLocation() {
+        
+        if let location = location {
+            let machineIDString = location.locationID
+            guard let machineID = machineIDString else { return }
+            
+            locationController.fetchMachinesWith(location: machineID) { (machine) in
+                
+                
+                guard let machine = machine else { return }
+                machine.forEach {
+                    print($0.name ?? "NO DATA MY FRIEND")
+                    
+                }
+                self.reloadTableView()
+            }
+        }
+    }
+    
+    func reloadTableView() {
+        
+        DispatchQueue.main.async {
+            self.machinesAtLocationTableView.reloadData()
+        }
     }
     
     
 } /// --------------------------------------------- end of class. Class is out
 
 
-
-
-
-
-
-
 extension LocationsMachinesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        
+        func refresh(sender: UIRefreshControl?) {
+            if locationController.machines.count > 0 {
+                self.machinesAtLocationTableView.reloadData()
+                sender?.endRefreshing()
+            } else {
+                sender?.endRefreshing()
+            }
+        }
+        return locationController.machines.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "wackyTacky", for: indexPath)
+        let cell = machinesAtLocationTableView.dequeueReusableCell(withIdentifier: "locationsMachineCell", for: indexPath) as? LocationsMachinesTableViewCell
+        let locationsMachines = locationController.machines[indexPath.row]
+        cell?.machine = locationsMachines
         
-        return cell
+        print(locationsMachines)
+        
+        return cell ?? UITableViewCell()
+        
     }
 }
 

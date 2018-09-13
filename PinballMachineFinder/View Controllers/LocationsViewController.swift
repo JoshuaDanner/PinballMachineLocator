@@ -15,10 +15,11 @@ class LocationsViewController: UIViewController {
     // MARK: - Properties
     
     var navigationButton = UIButton()
+    private let locationController = LocationController()
+    
     var regionNames: [Region] = []
     let locationManager = CLLocationManager()
     var currentCoordinate: CLLocationCoordinate2D?
-    let locationController = LocationController()
     var selectedAnnotation: MKPointAnnotation?
     
     // MARK: IBOutlets
@@ -97,8 +98,8 @@ class LocationsViewController: UIViewController {
                 DispatchQueue.main.async {
                     let regionName = LocationController.sharedInstance.regions.first?.regionLocationFullName
                     guard let nameToSearch = regionName else { return }
-                    self.popupTableView.reloadData()
-                    self.locationTableView.reloadData()
+                   self.popupTableView.reloadData()
+                   self.locationTableView.reloadData()
                 }
             }
         }
@@ -107,51 +108,51 @@ class LocationsViewController: UIViewController {
     
     // Functions for finding the users location
     
-    // 1 Authorization for user to access maps --------------------------------------------------
-    func configureLocationServices() {
-        locationManager.delegate = self
-        
-        let status = CLLocationManager.authorizationStatus()
-        
-        if status == .restricted ||
-            status == .denied ||
-            status == .notDetermined {
-            locationManager.requestWhenInUseAuthorization()
-        } else if status == .authorizedAlways || status == .authorizedWhenInUse {
-            beginLocationUpdates(locationManager: locationManager)
-        }
-    }
-    
-    // 2 Function for giving the desired user's location
-    func beginLocationUpdates(locationManager: CLLocationManager) {
-        locationsMapView.showsUserLocation = true
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
-    }
-    
-    // 3 Function for zooming into user's location
-    
-    func zoomToLatestLocation(with coordinate: CLLocationCoordinate2D) {
-        let zoomRegion = MKCoordinateRegionMakeWithDistance(coordinate, 10000, 10000)
-        locationsMapView.setRegion(zoomRegion, animated: true)
-    }
-    
-    // 4 Function for giving the annotation for users's location
-    
-    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
-        self.selectedAnnotation = view.annotation as? MKPointAnnotation
-    }
-    
-    
-    
+//    // 1 Authorization for user to access maps --------------------------------------------------
+//    func configureLocationServices() {
+//        locationManager.delegate = self
+//
+//        let status = CLLocationManager.authorizationStatus()
+//
+//        if status == .restricted ||
+//            status == .denied ||
+//            status == .notDetermined {
+//            locationManager.requestWhenInUseAuthorization()
+//        } else if status == .authorizedAlways || status == .authorizedWhenInUse {
+//            beginLocationUpdates(locationManager: locationManager)
+//        }
+//    }
+//
+//    // 2 Function for giving the desired user's location
+//    func beginLocationUpdates(locationManager: CLLocationManager) {
+//        locationsMapView.showsUserLocation = true
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.startUpdatingLocation()
+//    }
+//
+//    // 3 Function for zooming into user's location
+//
+//    func zoomToLatestLocation(with coordinate: CLLocationCoordinate2D) {
+//        let zoomRegion = MKCoordinateRegionMakeWithDistance(coordinate, 10000, 10000)
+//        locationsMapView.setRegion(zoomRegion, animated: true)
+//    }
+//
+//    // 4 Function for giving the annotation for users's location
+//
+//    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+//        self.selectedAnnotation = view.annotation as? MKPointAnnotation
+//    }
+//
+//
+//
     @objc func showRegionPopup(navigationButton: UIButton) {
-        
-        popupViewCenterYAxis.constant = -73
-        
+
+        popupViewCenterYAxis.constant = -53
+
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
-        
+
         UIView.animate(withDuration: 0.1, animations: {
             self.view.layoutIfNeeded()
             self.backgroundButton.alpha = 0.5
@@ -160,12 +161,10 @@ class LocationsViewController: UIViewController {
     
     // MARK: IBActions
     
-    @IBAction func refreshButtonTapped(_ sender: UIBarButtonItem) {
-        self.locationTableView.reloadData()
-    }
+
     
     @IBAction func closePopUp(_ sender: Any) {
-        popupViewCenterYAxis.constant = -630
+        popupViewCenterYAxis.constant = -1000
         UIView.animate(withDuration: 0.1) {
             self.view.layoutIfNeeded()
             self.backgroundButton.alpha = 0
@@ -177,27 +176,27 @@ class LocationsViewController: UIViewController {
 
 // The MapKit Delegate my friend, the MapKit Delegate.........my friend.
 
-extension LocationsViewController: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let latestLocation = locations.first else { return }
-        
-        if currentCoordinate == nil {
-            zoomToLatestLocation(with: latestLocation.coordinate)
-            
-        }
-        
-        currentCoordinate = latestLocation.coordinate
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        print("The status changed my friend the status changed")
-        
-        if status == .authorizedAlways || status == .authorizedWhenInUse {
-            beginLocationUpdates(locationManager: manager)
-        }
-    }
-}
+//extension LocationsViewController: CLLocationManagerDelegate {
+//
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        guard let latestLocation = locations.first else { return }
+//
+//        if currentCoordinate == nil {
+//            zoomToLatestLocation(with: latestLocation.coordinate)
+//
+//        }
+//
+//        currentCoordinate = latestLocation.coordinate
+//    }
+//
+//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        print("The status changed my friend the status changed")
+//
+//        if status == .authorizedAlways || status == .authorizedWhenInUse {
+//            beginLocationUpdates(locationManager: manager)
+//        }
+//    }
+//}
 // MARK: - TableViewDelegates
 
 extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -213,6 +212,14 @@ extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         if tableView == self.locationTableView {
             let count = LocationController.sharedInstance.locations.count
+            func refresh(sender: UIRefreshControl?) {
+                if count > 0 {
+                    self.locationTableView.reloadData()
+                    sender?.endRefreshing()
+                } else {
+                    sender?.endRefreshing()
+                }
+            }
             print("🍉 \(count)")
             return count
             
@@ -229,7 +236,7 @@ extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
             
             guard let regionLocationFullName = LocationController.sharedInstance.regions[indexPath.row].regionLocationFullName else { return }
             navigationButton.setTitle("\(regionLocationFullName) ▾", for: .normal)
-            popupViewCenterYAxis.constant = -630
+            popupViewCenterYAxis.constant = -1000
             
             UIView.animate(withDuration: 0.1) {
                 self.view.layoutIfNeeded()
@@ -256,7 +263,7 @@ extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
             locationController.fetchLocationsWith(region: regionLocationFullName) { (locations) in // Jaydens contribution
                 guard let locations = locations else { print("Couldn't get location") ; return }
                 LocationController.sharedInstance.locations = locations
-                self.locationTableView.reloadData()
+                //self.locationTableView.reloadData()
                 
                 locations.forEach {
                     print($0.city ?? "No Data")
@@ -284,7 +291,6 @@ extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
             let locationsInRegion = LocationController.sharedInstance.locations[indexPath.row] 
             cell?.location = locationsInRegion
             
-            print(locationsInRegion)
             return cell ?? UITableViewCell()
             
         }
@@ -297,6 +303,9 @@ extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
                 let indexPath = locationTableView.indexPathForSelectedRow else { return }
             
             let location = LocationController.sharedInstance.locations[indexPath.row]
+            
+            destinationVC.location = location
+            
             
         
             
