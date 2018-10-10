@@ -43,7 +43,7 @@ class LocationController {
             do {
                 let jsonDecoder = JSONDecoder()
                 let topLevel = try jsonDecoder.decode(TopLevelRegion.self, from: data)
-                let regions = topLevel.regions.compactMap({$0})
+                var regions = topLevel.regions.compactMap({$0})
                 self.regions = regions
                 completion(true)
                 

@@ -271,13 +271,16 @@
 				TargetAttributes = {
 					42F14B012108F1DF002C3567 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					42F14B172108F1E1002C3567 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 42F14B012108F1DF002C3567;
 					};
 					42F14B222108F1E1002C3567 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 42F14B012108F1DF002C3567;
 					};
 				};
@@ -527,7 +530,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JoshuaDanner.PinballMachineFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -545,7 +548,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JoshuaDanner.PinballMachineFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -565,7 +568,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JoshuaDanner.PinballMachineFinderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinballMachineFinder.app/PinballMachineFinder";
 			};
@@ -586,7 +589,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JoshuaDanner.PinballMachineFinderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinballMachineFinder.app/PinballMachineFinder";
 			};
@@ -606,7 +609,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JoshuaDanner.PinballMachineFinderUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PinballMachineFinder;
 			};
@@ -626,7 +629,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JoshuaDanner.PinballMachineFinderUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PinballMachineFinder;
 			};

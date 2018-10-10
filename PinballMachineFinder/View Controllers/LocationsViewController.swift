@@ -27,6 +27,7 @@ class LocationsViewController: UIViewController {
     @IBOutlet weak var backgroundButton: UIButton!
     @IBOutlet weak var locationTableView: UITableView!
     @IBOutlet weak var popupView: UIView!
+    
     @IBOutlet weak var popupViewCenterYAxis: NSLayoutConstraint!
     @IBOutlet weak var popupTableView: UITableView!
     @IBOutlet weak var locationsMapView: MKMapView!
@@ -36,11 +37,10 @@ class LocationsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+   //     configureLocationServices()
         fetchRegion()
         tableViewDelegates()
         navigationTitleButtonProperties()
-        
     }
     
     func fetchRegion() {
@@ -66,6 +66,8 @@ class LocationsViewController: UIViewController {
         locationTableView.register(UITableViewCell.self, forCellReuseIdentifier: "locationCell")
         
     }
+    
+
     
     func locationTableViewProperties() {
         
@@ -93,16 +95,17 @@ class LocationsViewController: UIViewController {
         navigationButton.widthAnchor.constraint(equalToConstant: 220).isActive = true
         navigationButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        _ = locationController.fetchRegions { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    let regionName = LocationController.sharedInstance.regions.first?.regionLocationFullName
-                    guard let nameToSearch = regionName else { return }
-                   self.popupTableView.reloadData()
-                   self.locationTableView.reloadData()
-                }
-            }
-        }
+//        _ = locationController.fetchRegions { (success) in
+//            if success {
+//                DispatchQueue.main.async {
+//                    let regionName = LocationController.sharedInstance.regions.first?.regionLocationFullName
+//                    guard let nameToSearch = regionName else { return }
+//
+//                    self.popupTableView.reloadData()
+//                    self.locationTableView.reloadData()
+//                }
+//            }
+//        }
         
     }
     
@@ -243,7 +246,7 @@ extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
                 self.backgroundButton.alpha = 0
             }
             guard let regionLocationName = LocationController.sharedInstance.regions[indexPath.row].regionLocationName else { return }
-            locationController.fetchLocationsWith(region: regionLocationName) { (locations) in // Jaydens contribution
+            locationController.fetchLocationsWith(region: regionLocationName) { (locations) in
                 guard let locations = locations else { print("Couldn't get location") ; return }
                 LocationController.sharedInstance.locations = locations
                 
@@ -260,7 +263,7 @@ extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
         
         if tableView == self.locationTableView {
             guard let regionLocationFullName = LocationController.sharedInstance.regions[indexPath.row].regionLocationFullName else { return }
-            locationController.fetchLocationsWith(region: regionLocationFullName) { (locations) in // Jaydens contribution
+            locationController.fetchLocationsWith(region: regionLocationFullName) { (locations) in 
                 guard let locations = locations else { print("Couldn't get location") ; return }
                 LocationController.sharedInstance.locations = locations
                 //self.locationTableView.reloadData()
@@ -305,11 +308,6 @@ extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
             let location = LocationController.sharedInstance.locations[indexPath.row]
             
             destinationVC.location = location
-            
-            
-        
-            
-            
         }
     }
 }

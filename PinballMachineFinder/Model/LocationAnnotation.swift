@@ -31,10 +31,10 @@ class LocationAnnotation: NSObject, MKAnnotation {
     var zip: String? {
         return location.zip
     }
-    var lat: String? {
+    var latitude: String? {
         return location.latitude
     }
-    var lon: String? {
+    var longitude: String? {
         return location.longitude
     }
     var website: String? {
