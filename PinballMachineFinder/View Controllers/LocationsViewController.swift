@@ -33,6 +33,7 @@ class LocationsViewController: UIViewController {
     @IBOutlet weak var locationsMapView: MKMapView!
     
     
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -55,7 +56,7 @@ class LocationsViewController: UIViewController {
             }
         }
     }
-    
+   
     func tableViewDelegates() {
         
         popupTableView.dataSource = self
@@ -66,8 +67,6 @@ class LocationsViewController: UIViewController {
         locationTableView.register(UITableViewCell.self, forCellReuseIdentifier: "locationCell")
         
     }
-    
-
     
     func locationTableViewProperties() {
         
@@ -95,21 +94,13 @@ class LocationsViewController: UIViewController {
         navigationButton.widthAnchor.constraint(equalToConstant: 220).isActive = true
         navigationButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-//        _ = locationController.fetchRegions { (success) in
-//            if success {
-//                DispatchQueue.main.async {
-//                    let regionName = LocationController.sharedInstance.regions.first?.regionLocationFullName
-//                    guard let nameToSearch = regionName else { return }
-//
-//                    self.popupTableView.reloadData()
-//                    self.locationTableView.reloadData()
-//                }
-//            }
-//        }
+
         
     }
     
     // Functions for finding the users location
+    
+    
     
 //    // 1 Authorization for user to access maps --------------------------------------------------
 //    func configureLocationServices() {
@@ -200,6 +191,7 @@ class LocationsViewController: UIViewController {
 //        }
 //    }
 //}
+
 // MARK: - TableViewDelegates
 
 extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
