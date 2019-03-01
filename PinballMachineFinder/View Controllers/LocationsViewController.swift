@@ -38,10 +38,23 @@ class LocationsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   //     configureLocationServices()
+        
+        let initialLocation = CLLocation(latitude: 40.7608, longitude: -111.8910)//---------------11111--------------
+        
+        configureLocationServices()
         fetchRegion()
         tableViewDelegates()
         navigationTitleButtonProperties()
+        centerMapOnLocation(location: initialLocation)//-------------------------11111-------------------------
+    }
+    
+    // MARK: - Mapkit practice December 10th------------------------------11111-------------
+    
+    let regionRadius: CLLocationDistance = 10000
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
+                                                  latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        locationsMapView.setRegion(coordinateRegion, animated: true)
     }
     
     func fetchRegion() {
@@ -57,6 +70,8 @@ class LocationsViewController: UIViewController {
         }
     }
    
+    
+    
     func tableViewDelegates() {
         
         popupTableView.dataSource = self
@@ -68,14 +83,13 @@ class LocationsViewController: UIViewController {
         
     }
     
+
+    
     func locationTableViewProperties() {
         
     }
     
     func popupViewProperties() {
-        
-        //        let regionPopupView = RegionPopupView()
-        //        self.popupView.addSubview(regionPopupView)
         
     }
     
@@ -100,45 +114,45 @@ class LocationsViewController: UIViewController {
     
     // Functions for finding the users location
     
-    
-    
-//    // 1 Authorization for user to access maps --------------------------------------------------
-//    func configureLocationServices() {
-//        locationManager.delegate = self
-//
-//        let status = CLLocationManager.authorizationStatus()
-//
-//        if status == .restricted ||
-//            status == .denied ||
-//            status == .notDetermined {
-//            locationManager.requestWhenInUseAuthorization()
-//        } else if status == .authorizedAlways || status == .authorizedWhenInUse {
-//            beginLocationUpdates(locationManager: locationManager)
-//        }
-//    }
-//
-//    // 2 Function for giving the desired user's location
-//    func beginLocationUpdates(locationManager: CLLocationManager) {
-//        locationsMapView.showsUserLocation = true
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        locationManager.startUpdatingLocation()
-//    }
-//
-//    // 3 Function for zooming into user's location
-//
-//    func zoomToLatestLocation(with coordinate: CLLocationCoordinate2D) {
-//        let zoomRegion = MKCoordinateRegionMakeWithDistance(coordinate, 10000, 10000)
-//        locationsMapView.setRegion(zoomRegion, animated: true)
-//    }
-//
-//    // 4 Function for giving the annotation for users's location
-//
-//    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
-//        self.selectedAnnotation = view.annotation as? MKPointAnnotation
-//    }
-//
-//
-//
+    // 1 Authorization for user to access maps --------------------------------------------------
+    func configureLocationServices() {
+        locationManager.delegate = self
+
+        let status = CLLocationManager.authorizationStatus()
+
+        if status == .restricted ||
+            status == .denied ||
+            status == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        } else if status == .authorizedAlways || status == .authorizedWhenInUse {
+            
+            beginLocationUpdates(locationManager: locationManager)
+            
+        }
+    }
+
+    // 2 Function for giving the user's location
+    func beginLocationUpdates(locationManager: CLLocationManager) {
+        
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+    }
+
+    // 3 Function for zooming into user's location
+
+    func zoomToLatestLocation(with coordinate: CLLocationCoordinate2D) {
+        let zoomRegion = MKCoordinateRegion(center: coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
+        locationsMapView.setRegion(zoomRegion, animated: true)
+    }
+
+    // 4 Function for giving the annotation for users's location
+
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        self.selectedAnnotation = view.annotation as? MKPointAnnotation
+    }
+
+
+
     @objc func showRegionPopup(navigationButton: UIButton) {
 
         popupViewCenterYAxis.constant = -53
@@ -170,28 +184,27 @@ class LocationsViewController: UIViewController {
 
 // The MapKit Delegate my friend, the MapKit Delegate.........my friend.
 
-//extension LocationsViewController: CLLocationManagerDelegate {
-//
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        guard let latestLocation = locations.first else { return }
-//
-//        if currentCoordinate == nil {
-//            zoomToLatestLocation(with: latestLocation.coordinate)
-//
-//        }
-//
-//        currentCoordinate = latestLocation.coordinate
-//    }
-//
-//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//        print("The status changed my friend the status changed")
-//
-//        if status == .authorizedAlways || status == .authorizedWhenInUse {
-//            beginLocationUpdates(locationManager: manager)
-//        }
-//    }
-//}
+extension LocationsViewController: CLLocationManagerDelegate {
 
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let latestLocation = locations.first else { return }
+
+        if currentCoordinate == nil {
+            zoomToLatestLocation(with: latestLocation.coordinate)
+
+        }
+
+        currentCoordinate = latestLocation.coordinate
+    }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print("The status changed my friend the status changed")
+
+        if status == .authorizedAlways || status == .authorizedWhenInUse {
+            beginLocationUpdates(locationManager: manager)
+        }
+    }
+}
 // MARK: - TableViewDelegates
 
 extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {

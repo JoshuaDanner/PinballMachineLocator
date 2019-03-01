@@ -5,18 +5,20 @@
 //  Created by Joshua Danner on 8/1/18.
 //  Copyright © 2018 JoshuaDanner. All rights reserved.
 //
-
+// ----- Todays the day to say hurray! ----------------------
 import Foundation
 import MapKit
 
-struct TopLevelLocation: Codable {
+struct TopLevelLocation: Decodable {
     let locations: [Location]
 }
 
 
-// This is your object
-class Location: Codable {
+// This is my object
+class Location: NSObject, Decodable {
     
+    
+    var coordinate: Coordinate?
     let locationID: Int?
     let locationName: String?
     let street: String?
@@ -28,6 +30,8 @@ class Location: Codable {
     let website: String?
     let numberOfMachines: Int?
     let machineXRefs: [MachineXRef]
+    
+    
     
     
     init(locationID: Int?, locationName: String?, street: String?, city: String?, state: String?, zip: String?, latitude: String?, longitude: String?, website: String?, numberOfMachines: Int, machineXRefs: [MachineXRef]) {
@@ -42,12 +46,10 @@ class Location: Codable {
         self.website = website
         self.numberOfMachines = numberOfMachines
         self.machineXRefs = machineXRefs
+        
+        
+        
     }
-    
-    
-
-    
-
     
     private enum CodingKeys: String, CodingKey {
         case locationID = "id"
@@ -57,15 +59,22 @@ class Location: Codable {
         case street, city, state, zip, website
         case numberOfMachines = "num_machines"
         case machineXRefs = "location_machine_xrefs"
+        case coordinate = "coordinate"
        
     }
     
-//    public var newCoordinate: CLLocationCoordinate2D {
-//        guard let longitudeDouble = longitude,
-//        let latitudeDouble = latitude
-//            else { return CLLocationCoordinate2D() }
-//        return CLLocationCoordinate2D(latitude: Double(latitudeDouble)!, longitude: Double(longitudeDouble)!)
-//    }
+    
+    struct Coordinate: Codable {
+        let lat: Double?
+        let long: Double?
+    }
+    
+    public var newCoordinate: CLLocationCoordinate2D {
+        guard let longitude = coordinate?.long,
+            let latitude = coordinate?.lat
+            else { return  CLLocationCoordinate2D()}
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
     
 }
 

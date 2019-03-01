@@ -46,6 +46,11 @@ class LocationController {
                 var regions = topLevel.regions.compactMap({$0})
                 self.regions = regions
                 completion(true)
+            } catch DecodingError.keyNotFound(let key, let context) {
+                print("Missing key: \(key)")
+                print("Debug description: \(context.debugDescription)")
+            } catch DecodingError.valueNotFound(let type, let context) {
+                
                 
             } catch let error {
                 print("❌Error decoding movie data. Exiting with error: \(error)")
@@ -63,7 +68,7 @@ class LocationController {
         
         let completeLocationURL = url.appendingPathComponent(region).appendingPathComponent("locations").appendingPathExtension("json")
         
-       // print("📡📡📡 \(completeLocationURL) 📡📡📡")
+        // print("📡📡📡 \(completeLocationURL) 📡📡📡")
         
         URLSession.shared.dataTask(with: completeLocationURL) { (data, _, error) in
             if let error = error {
@@ -84,7 +89,7 @@ class LocationController {
                 completion(nil)
                 return
             }
-           // print(data)
+            // print(data)
             }.resume()
         
         
@@ -124,7 +129,7 @@ class LocationController {
                 return
             }
             print(data)
-        }.resume()
+            }.resume()
     }
     
 } // End LocationController

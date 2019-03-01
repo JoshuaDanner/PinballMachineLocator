@@ -442,6 +442,7 @@
                     <connections>
                         <outlet property="backgroundButton" destination="p8V-UR-6d7" id="0j2-eh-A5W"/>
                         <outlet property="locationTableView" destination="dJu-c2-7WK" id="8xd-YG-kY8"/>
+                        <outlet property="locationsMapView" destination="A5R-qp-0Rx" id="0R1-MZ-TFb"/>
                         <outlet property="popupTableView" destination="JgT-gM-XKt" id="Xu3-Ia-lc7"/>
                         <outlet property="popupView" destination="P7c-aT-5TS" id="hOp-GJ-E1a"/>
                         <outlet property="popupViewCenterYAxis" destination="Js7-eS-Ocx" id="gcf-Jz-yU4"/>
