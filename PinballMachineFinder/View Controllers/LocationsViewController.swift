@@ -10,12 +10,13 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class LocationsViewController: UIViewController {
+class LocationsViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: - Properties
     
     var navigationButton = UIButton()
     private let locationController = LocationController()
+    var location: Location?
     
     var regionNames: [Region] = []
     let locationManager = CLLocationManager()
@@ -46,7 +47,21 @@ class LocationsViewController: UIViewController {
         tableViewDelegates()
         navigationTitleButtonProperties()
         centerMapOnLocation(location: initialLocation)//-------------------------11111-------------------------
+        locationsMapView.delegate = self
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        guard let currentCoordinate = currentCoordinate else { return }
+        
+        locationsMapView.setRegion(MKCoordinateRegion(center: currentCoordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)), animated: true)
+        
+        guard let location = location else { return }
+        let point = LocationAnnotation(coordinate: currentCoordinate, location: location)
+        self.locationsMapView.addAnnotation([point] as! MKAnnotation)
+    }
+    
+    
+    
     
     // MARK: - Mapkit practice December 10th------------------------------11111-------------
     
