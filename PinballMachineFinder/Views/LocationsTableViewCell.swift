@@ -44,7 +44,7 @@ class LocationsTableViewCell: UITableViewCell {
 //            self.pinViewProperties()
 //        }
         guard let location = location else { return }
-        self.locationName.text = location.locationName
+        self.locationName.text = location.name
         self.locationAddress.text = location.street
         self.locationCity.text = location.city
         self.locationState.text = location.state

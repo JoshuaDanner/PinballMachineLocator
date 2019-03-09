@@ -17,9 +17,9 @@ class LocationController {
     var locations: [Location] = []
     var machines: [Machine] = []
     
-    var regionURL = URL(string: "https://pinballmap.com/api/v1/regions.json")
-    var baseLocationURL = URL(string: "https://pinballmap.com/api/v1/region/")
-    var baseMachinesAtLocationURL = URL(string: "https://pinballmap.com/api/v1/locations/")
+    fileprivate var regionURL = URL(string: "https://pinballmap.com/api/v1/regions.json")
+    fileprivate var baseLocationURL = URL(string: "https://pinballmap.com/api/v1/region/")
+    fileprivate var baseMachinesAtLocationURL = URL(string: "https://pinballmap.com/api/v1/locations/")
     
     // Fetch list of available regions to access name for Location Fetch
     func fetchRegions(completion: @escaping(Bool) -> Void) {
@@ -68,7 +68,7 @@ class LocationController {
         
         let completeLocationURL = url.appendingPathComponent(region).appendingPathComponent("locations").appendingPathExtension("json")
         
-        // print("📡📡📡 \(completeLocationURL) 📡📡📡")
+        print("📡📡📡 \(completeLocationURL) 📡📡📡")
         
         URLSession.shared.dataTask(with: completeLocationURL) { (data, _, error) in
             if let error = error {
@@ -81,8 +81,9 @@ class LocationController {
             
             let jsonDecoder = JSONDecoder()
             do {
-                let topLevel = try jsonDecoder.decode(TopLevelLocation.self , from: data)
-                completion(topLevel.locations)
+                let locations = try jsonDecoder.decode(TopLayer.self , from: data).locations
+                self.locations = locations
+                completion(self.locations)
             } catch let error {
                 
                 print("Error decoding location from dataTask: \(error)")
@@ -91,9 +92,6 @@ class LocationController {
             }
             // print(data)
             }.resume()
-        
-        
-        
     }
     
     //-----------------------------------
@@ -132,36 +130,48 @@ class LocationController {
             }.resume()
     }
     
+    func fetchPinballMachinesWithin(latitude: String, longitude: String, completion: @escaping([Location]?) -> Void) {
+        let baseUrl = URL(string: "https://pinballmap.com/api/v1/locations/closest_by_lat_lon.json")!
+        var components = URLComponents(url: baseUrl, resolvingAgainstBaseURL: true)
+        let coordinatesQuery = URLQueryItem(name: "lat", value: "\(latitude)&lon=\(longitude)")
+        components?.queryItems = [coordinatesQuery]
+        
+        guard var locationUrl = components?.url?.absoluteString else {
+            return
+        }
+        
+        let distanceParameters = "&send_all_within_distance=true&max_distance=25" // Shows all pinball locations witin a 50 mile radius of latitude and longitude.
+        
+        locationUrl += distanceParameters
+        
+        let completeUrl = URL(string: locationUrl.replacingOccurrences(of: "%26", with: "&").replacingOccurrences(of: "%3D", with: "="))!
+        // TODO: See if you can implement percent encoding to clean up this url
+        
+        URLSession.shared.dataTask(with: completeUrl) { (data, _, error) in
+            if let error = error {
+                print("Datatask could not reach the network with the url: \(completeUrl). \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            guard let data = data else {
+                completion(nil)
+                return
+            }
+            
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                let pinballMachines = try jsonDecoder.decode(TopLayer.self, from: data).locations
+                self.locations = pinballMachines
+                completion(self.locations)
+            } catch {
+                assertionFailure("Error decoding json into data. \(error.localizedDescription)")
+            }
+            }.resume()
+    }
+    
 } // End LocationController
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

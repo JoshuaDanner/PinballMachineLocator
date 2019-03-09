@@ -14,10 +14,10 @@ class LocationAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     
     var locationId: Int? {
-        return location.locationID
+        return location.id
     }
     var locationName: String? {
-        return location.locationName
+        return location.name
     }
     var street: String? {
         return location.street
@@ -32,20 +32,19 @@ class LocationAnnotation: NSObject, MKAnnotation {
         return location.zip
     }
     var latitude: String? {
-        return location.latitude
+        return location.lat
     }
     var longitude: String? {
-        return location.longitude
+        return location.lon
     }
     var website: String? {
         return location.website
     }
-    var numberOfMachines: Int? {
-        return location.numberOfMachines
-    }
+    //    var numberOfMachines: Int? {
+    //        return location.numberOfMachines
+    //    }
     init(coordinate: CLLocationCoordinate2D, location: Location) {
         self.coordinate = coordinate
         self.location = location
     }
-    
 }

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:PinballMachineFinder.xcodeproj">
+      location = "self:/Users/Joshua/DevMountainCohort19/Pinball!/PinballMachineFinder/PinballMachineFinder.xcodeproj">
    </FileRef>
 </Workspace>

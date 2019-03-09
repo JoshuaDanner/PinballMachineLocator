@@ -24,6 +24,8 @@
 		42F14B122108F1E1002C3567 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F14B102108F1E1002C3567 /* LaunchScreen.storyboard */; };
 		42F14B1D2108F1E1002C3567 /* PinballMachineFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F14B1C2108F1E1002C3567 /* PinballMachineFinderTests.swift */; };
 		42F14B282108F1E1002C3567 /* PinballMachineFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F14B272108F1E1002C3567 /* PinballMachineFinderUITests.swift */; };
+		42F4302822346A4D006F09C2 /* CalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F4302722346A4D006F09C2 /* CalloutView.swift */; };
+		42F4302E22347D2A006F09C2 /* CalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42F4302D22347D2A006F09C2 /* CalloutView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		42F14B232108F1E1002C3567 /* PinballMachineFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinballMachineFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42F14B272108F1E1002C3567 /* PinballMachineFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinballMachineFinderUITests.swift; sourceTree = "<group>"; };
 		42F14B292108F1E1002C3567 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42F4302722346A4D006F09C2 /* CalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutView.swift; sourceTree = "<group>"; };
+		42F4302D22347D2A006F09C2 /* CalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalloutView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,9 +200,11 @@
 		42F14B3A2108F2AC002C3567 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				42F4302722346A4D006F09C2 /* CalloutView.swift */,
 				42D52804210FAA5E00F4BC93 /* LocationsTableViewCell.swift */,
 				42C445522148B2B600262070 /* LocationsMachinesTableViewCell.swift */,
 				42D5BB2B211BD4D5002A19AA /* RegionPopupView.swift */,
+				42F4302D22347D2A006F09C2 /* CalloutView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -313,6 +319,7 @@
 				42F14B122108F1E1002C3567 /* LaunchScreen.storyboard in Resources */,
 				42F14B0F2108F1E1002C3567 /* Assets.xcassets in Resources */,
 				42F14B0D2108F1DF002C3567 /* Main.storyboard in Resources */,
+				42F4302E22347D2A006F09C2 /* CalloutView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +348,7 @@
 				42D52805210FAA5E00F4BC93 /* LocationsTableViewCell.swift in Sources */,
 				42C445532148B2B600262070 /* LocationsMachinesTableViewCell.swift in Sources */,
 				42D5BB2C211BD4D5002A19AA /* RegionPopupView.swift in Sources */,
+				42F4302822346A4D006F09C2 /* CalloutView.swift in Sources */,
 				42A4EDBD21123108001F071E /* Location.swift in Sources */,
 				42F14B062108F1DF002C3567 /* AppDelegate.swift in Sources */,
 				42F14B082108F1DF002C3567 /* LocationsViewController.swift in Sources */,
