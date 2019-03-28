@@ -13,8 +13,7 @@ class LocationsViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: - Properties
     var navigationButton = UIButton()
-    //    private weak var locationController: LocationController!
-    //    var location: Location?
+    
     var locations: [Location] = []
     var foundPinballMachines: [Location] = []
     
@@ -23,6 +22,7 @@ class LocationsViewController: UIViewController, MKMapViewDelegate {
     var currentCoordinate: CLLocationCoordinate2D?
     var selectedAnnotation: MKPointAnnotation?
     var selectedLocation: Location?
+    
     
     let calloutNib = Bundle.main.loadNibNamed("CalloutView", owner: nil, options: nil)
     lazy var calloutView = calloutNib?.first as! CalloutView
@@ -44,6 +44,8 @@ class LocationsViewController: UIViewController, MKMapViewDelegate {
     
     
     
+    
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -51,14 +53,11 @@ class LocationsViewController: UIViewController, MKMapViewDelegate {
         
         locationsMapView.delegate = self
         locationsMapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleMapInteraction)))
-        
-        //        let initialLocation = CLLocation(latitude: 40.7608, longitude: -111.8910)//---------------11111--------------
-        
         configureLocationServices()
         fetchRegion()
         tableViewDelegates()
         navigationTitleButtonProperties()
-        //        centerMapOnLocation(location: initialLocation)//-------------------------11111-------------------------
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,14 +65,11 @@ class LocationsViewController: UIViewController, MKMapViewDelegate {
         
         locationsMapView.setRegion(MKCoordinateRegion(center: currentCoordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)), animated: true)
         
-        // ^^^^ This code will reset the map view everytime the view appears. When you navigate back from the detail view controller, the map will refocus back to wherever the user is located. This may not be the behavior you want when using the drop down menu to discover other cities with pinball machines.
+        // ^^^^ This code will reset the map view everytime the view appears. When you navigate back from the detail view controller, the map will refocus back to wherever the user is located. This may not be the behavior I want when using the drop down menu to discover other cities with pinball machines.
         
-        //        guard let location = location else { return }
-        //        let point = LocationAnnotation(coordinate: currentCoordinate, location: locations)
-        //        self.locationsMapView.addAnnotation([point] as! MKAnnotation)
     }
     
-    // MARK: - Mapkit practice December 10th------------------------------11111-------------
+    
     
     let regionRadius: CLLocationDistance = 10000
     func centerMapOnLocation(location: CLLocation) {
@@ -116,13 +112,13 @@ class LocationsViewController: UIViewController, MKMapViewDelegate {
         
         // Configure the button
         
-        navigationButton.setTitle("Select Region ▾", for: .normal)
+        navigationButton.setTitle("          Select Region ▾          ", for: .normal)
         navigationButton.setTitleColor(UIColor.black, for: .normal)
         navigationButton.addTarget(self, action: #selector(self.showRegionPopup), for: .touchUpInside)
         navigationButton.sizeToFit()
         navigationButton.translatesAutoresizingMaskIntoConstraints = false
-        navigationButton.widthAnchor.constraint(equalToConstant: 220).isActive = true
-        navigationButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        navigationButton.widthAnchor.constraint(equalToConstant: 220).isActive = false
+        navigationButton.heightAnchor.constraint(equalToConstant: 40).isActive = false
     }
     
     func fetchPinballMachinesWithin(latitude: String, longitude: String) {
@@ -324,7 +320,7 @@ extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
         
         if tableView == self.popupTableView {
             let  count = LocationController.sharedInstance.regions.count
-            print("🍎 \(count)")
+            
             return count
         }
         if tableView == self.locationTableView {
@@ -337,7 +333,7 @@ extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
                     sender?.endRefreshing()
                 }
             }
-            print("🍉 \(count)")
+            
             return count
             
         }
@@ -427,6 +423,16 @@ extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = locationTableView.dequeueReusableCell(withIdentifier: "locationsCelly", for: indexPath) as? LocationsTableViewCell
             let locationsInRegion = LocationController.sharedInstance.locations[indexPath.row]
             cell?.location = locationsInRegion
+            
+            //            if indexPath.row % 2 == 0 {
+            //                cell?.backgroundColor = UIColor.lightGray
+            //                //cell?.cellColorImage = UIImageView(named: "RectangleBlue")!
+            //            } else {
+            //                cell?.backgroundColor = UIColor.white
+            //
+            //            }
+            //let rectangleImageView = UIImage(named: "RectangleBlue")
+            
             
             return cell ?? UITableViewCell()
             
